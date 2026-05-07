@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKM Belajar-Masih Pemula</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header class="navbar">
+        <h2 class="logo">AKM</h2>
+
+        <button class="menu-toggle" onclick="bukaMenu()">☰</button>
+        
+        <nav class="grup-kanan">
+            <ul class="nav-links">
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Proyek</a></li>
+                <li><a href="#">Sertifikat</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+            <button onclick="sakelarLampu()" class="tombol-tema">🌙 Tema</button>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h1 id="judul-hero">Halo, Saya Ahmad Khoirul Muna</h1>
+        <p>Electrical Engineering | Linux Enthusiast | Video Editor</p>
+        
+        <div class="grup-tombol-hero">
+            <a href="#proyek" class="tombol-utama">Lihat Karya Saya</a>
+            <button class="tombol-utama" onclick="gantiNama()" style="border: none; cursor: pointer;">Ganti Nama</button>
+        </div>
+    </section>
+
+    <hr>
+
+    <main>
+        
+        <section>
+            <h3>Fokus Minggu Ini:</h3>
+            <ul>
+                <li>Setup Workspace</li>
+                <li>Memahami Tag HTML Dasar</li>
+                <li>Menjalankan Live Server</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h3>1. Tautan (Link) & Media</h3>
+            <a href="https://github.com" target="_blank">Buka GitHub (Tab Baru)</a>
+            <br><br>
+            <img src="Gambar/github.png" alt="Gambar Logo Github" style="border-radius: 8px;">
+        </section>
+
+        <section class="Kotak-matkul">
+            <h3>Daftar Mata Kuliah Semester Ini:</h3>
+            <ol>
+                <li>Matematika Teknik</li>
+                <li>Dasar-Dasar Pemrograman</li>
+                <li>Pengantar Teknologi Informasi</li>
+            </ol>
+        </section>
+
+        <section class="bapak-flexbox">
+            <div class="anak-kartu">
+                <h4>Skill 1</h4>
+                <p>Linux & Terminal</p>
+            </div>
+            <div class="anak-kartu">
+                <h4>Skill 2</h4>
+                <p>HTML5 & CSS3</p>
+            </div>
+            <div class="anak-kartu">
+                <h4>Skill 3</h4>
+                <p>Logika Pemrograman</p>
+            </div>
+        </section>
+        <hr>
+
+        <section id="proyek" class="galeri-proyek">
+            <h2 class="judul-section">Proyek Terbaruku</h2>
+            
+            <div class="bapak-galeri">
+                <div class="kartu-proyek">
+                    <img src="https://picsum.photos/id/20/300/150" alt="Proyek 1">
+                    <div class="isi-kartu">
+                        <h3>Desain Poster</h3>
+                        <p>Eksperimen tata letak warna dan tipografi untuk acara kampus.</p>
+                        <a href="#" class="tombol-kartu">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <div class="kartu-proyek">
+                    <img src="https://picsum.photos/id/366/300/150" alt="Proyek 2">
+                    <div class="isi-kartu">
+                        <h3>Video Cinematik</h3>
+                        <p>Proses editing warna (color grading) menggunakan DaVinci Resolve.</p>
+                        <a href="#" class="tombol-kartu">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <div class="kartu-proyek">
+                    <img src="https://picsum.photos/id/0/300/150" alt="Proyek 3">
+                    <div class="isi-kartu">
+                        <h3>Eksperimen Jaringan</h3>
+                        <p>Simulasi keamanan jaringan Wi-Fi menggunakan Kali Linux.</p>
+                        <a href="#" class="tombol-kartu">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+
+        <section>
+            <h3>2. Form Input Sederhana</h3>
+            <form class="form-modern">
+            <label>Nama Mahasiswa:</label>
+            <input type="text" id="input-nama" placeholder="Ketik namamu di sini...">
+            
+            <label for="prodi">Program Studi:</label>
+            <input type="text" id="prodi" name="prodiUser" value="Pendidikan Teknik Elektro">
+            <button type="button" onclick="simpanData()">Simpan Data</button>
+            
+        </form>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <footer class="footer-modern">
+        <p>&copy; 2026 AKM. Hak Cipta Dilindungi.</p>
+        <div class="sosmed-links">
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        function gantiNama() {
+            let namaBaru = prompt("Siapa nama panggilan keren barumu?");
+
+            if (namaBaru) {
+                document.getElementById("judul-hero").innerHTML = "Halo, Saya " + namaBaru;
+            }
+        }
+        function sakelarLampu() {
+            document.body.classList.toggle("tema-gelap");
+        }
+        function simpanData() {
+            let namaDiketik = document.getElementById("input-nama").value;
+
+            if (namaDiketik === "") {
+                alert("Ups! Kotak nama tidak boleh kosong, ya.");
+            } else {
+                alert("Halo " + namaDiketik + "! Datamu telah berhasil terekam di sistem CachyOS milik Ahmad. 🚀");
+            }
+        }
+        function bukaMenu() {
+            document.querySelector(".grup-kanan").classList.toggle("aktif");
+        }
+    </script>
+</body>
+
+</body>
+</html>
