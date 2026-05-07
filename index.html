@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AKM Belajar-Masih Pemula</title>
+    <title>AKM Belajar - Masih Pemula</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
     <header class="navbar">
         <h2 class="logo">AKM</h2>
-
         <button class="menu-toggle" onclick="bukaMenu()">☰</button>
-        
         <nav class="grup-kanan">
             <ul class="nav-links">
                 <li><a href="#">Beranda</a></li>
-                <li><a href="#">Proyek</a></li>
+                <li><a href="#proyek">Proyek</a></li>
                 <li><a href="#">Sertifikat</a></li>
                 <li><a href="#">Kontak</a></li>
             </ul>
@@ -27,10 +25,9 @@
     <section class="hero-section">
         <h1 id="judul-hero">Halo, Saya Ahmad Khoirul Muna</h1>
         <p>Electrical Engineering | Linux Enthusiast | Video Editor</p>
-        
         <div class="grup-tombol-hero">
             <a href="#proyek" class="tombol-utama">Lihat Karya Saya</a>
-            <button class="tombol-utama" onclick="gantiNama()" style="border: none; cursor: pointer;">Ganti Nama</button>
+            <button class="tombol-utama" onclick="gantiNama()">Ganti Nama</button>
         </div>
     </section>
 
@@ -77,11 +74,11 @@
                 <p>Logika Pemrograman</p>
             </div>
         </section>
+        
         <hr>
 
         <section id="proyek" class="galeri-proyek">
             <h2 class="judul-section">Proyek Terbaruku</h2>
-            
             <div class="bapak-galeri">
                 <div class="kartu-proyek">
                     <img src="https://picsum.photos/id/20/300/150" alt="Proyek 1">
@@ -111,19 +108,19 @@
                 </div>
             </div>
         </section>
+        
         <hr>
 
         <section>
             <h3>2. Form Input Sederhana</h3>
             <form class="form-modern">
-            <label>Nama Mahasiswa:</label>
-            <input type="text" id="input-nama" placeholder="Ketik namamu di sini...">
-            
-            <label for="prodi">Program Studi:</label>
-            <input type="text" id="prodi" name="prodiUser" value="Pendidikan Teknik Elektro">
-            <button type="button" onclick="simpanData()">Simpan Data</button>
-            
-        </form>
+                <label for="input-nama">Nama Mahasiswa:</label>
+                <input type="text" id="input-nama" placeholder="Ketik namamu di sini...">
+                
+                <label for="prodi">Program Studi:</label>
+                <input type="text" id="prodi" name="prodiUser" value="Pendidikan Teknik Elektro">
+                <button type="button" onclick="simpanData()">Simpan Data</button>
+            </form>
         </section>
 
     </main>
@@ -142,7 +139,6 @@
     <script>
         function gantiNama() {
             let namaBaru = prompt("Siapa nama panggilan keren barumu?");
-
             if (namaBaru) {
                 document.getElementById("judul-hero").innerHTML = "Halo, Saya " + namaBaru;
             }
@@ -152,7 +148,6 @@
         }
         function simpanData() {
             let namaDiketik = document.getElementById("input-nama").value;
-
             if (namaDiketik === "") {
                 alert("Ups! Kotak nama tidak boleh kosong, ya.");
             } else {
@@ -163,7 +158,5 @@
             document.querySelector(".grup-kanan").classList.toggle("aktif");
         }
     </script>
-</body>
-
 </body>
 </html>
