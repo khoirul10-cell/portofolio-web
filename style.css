@@ -6,10 +6,13 @@ html {
     padding: 0;
     box-sizing: border-box;
 }
-.github {
-    max-width: 100%; /* Gambar boleh mengecil mengikuti layar, tapi tidak boleh lebih lebar dari kotak pembungkusnya */
-    height: auto; /* Proporsi tinggi gambar otomatis menyesuaikan agar tidak gepeng/peyang */
-    display: block; /* Menghilangkan spasi misterius di bawah gambar */
+/* Mengatur khusus gambar logo di bagian GitHub */
+.github img {
+    width: 150px; /* Silakan ubah angka ini jika dirasa kurang besar/kecil */
+    max-width: 100%; /* Memastikan gambar tetap aman dan tidak jebol di HP */
+    height: auto; /* Menjaga proporsi agar logo tidak gepeng/peyang */
+    display: block; 
+    margin-top: 10px; /* Memberi sedikit jarak tambahan dari teks di atasnya */
 }
 /* --- HAMBURGER MENU DASAR --- */
 .menu-toggle {
