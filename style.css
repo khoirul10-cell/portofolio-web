@@ -6,6 +6,11 @@ html {
     padding: 0;
     box-sizing: border-box;
 }
+.github {
+    max-width: 100%; /* Gambar boleh mengecil mengikuti layar, tapi tidak boleh lebih lebar dari kotak pembungkusnya */
+    height: auto; /* Proporsi tinggi gambar otomatis menyesuaikan agar tidak gepeng/peyang */
+    display: block; /* Menghilangkan spasi misterius di bawah gambar */
+}
 /* --- HAMBURGER MENU DASAR --- */
 .menu-toggle {
     display: none; /* Sembunyikan dari layar laptop */
