@@ -151,6 +151,7 @@ button:hover {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     white-space: nowrap;
     margin: 0;
+    font-weight: bold;
 }
 
 .tombol-utama:hover {
@@ -200,10 +201,11 @@ button:hover {
 .judul-section { text-align: center; color: #2c3e50; margin-bottom: 20px; }
 
 .bapak-galeri {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px; 
+    max-width: 1000px;
+    margin: 0 auto; 
 }
 
 .kartu-proyek {
@@ -211,7 +213,7 @@ button:hover {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    width: 300px;
+    width: 100%;
     transition: transform 0.3s ease;
 }
 
@@ -337,4 +339,8 @@ button:hover {
     .bapak-flexbox { flex-direction: column; }
     
     body { padding: 15px 10px; }
+    
+    .bapak-galeri {
+        grid-template-columns: 1fr;
+    }
 }

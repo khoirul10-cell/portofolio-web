@@ -10,7 +10,7 @@
     
     <header class="navbar">
         <h2 class="logo">AKM</h2>
-        <button class="menu-toggle" onclick="bukaMenu()">☰</button>
+        <button id="btn-menu" class="menu-toggle">☰</button>
         <nav class="grup-kanan">
             <ul class="nav-links">
                 <li><a href="#">Beranda</a></li>
@@ -18,7 +18,7 @@
                 <li><a href="#">Sertifikat</a></li>
                 <li><a href="#">Kontak</a></li>
             </ul>
-            <button onclick="sakelarLampu()" class="tombol-tema">🌙 Tema</button>
+            <button id="tombol-tema" class="tombol-tema">🌙 Tema</button>
         </nav>
     </header>
 
@@ -27,7 +27,7 @@
         <p>Electrical Engineering | Linux Enthusiast | Video Editor</p>
         <div class="grup-tombol-hero">
             <a href="#proyek" class="tombol-utama">Lihat Karya Saya</a>
-            <button class="tombol-utama" onclick="gantiNama()">Ganti Nama</button>
+            <button id="btn-gantinama" class="tombol-utama">Ganti Nama</button>
         </div>
     </section>
 
@@ -119,7 +119,7 @@
                 
                 <label for="prodi">Program Studi:</label>
                 <input type="text" id="prodi" name="prodiUser" value="Pendidikan Teknik Elektro">
-                <button type="button" onclick="simpanData()">Simpan Data</button>
+                <button id="btn-siman" type="button">Simpan Data</button>
             </form>
         </section>
 
@@ -137,26 +137,35 @@
     </footer>
 
     <script>
-        function gantiNama() {
+        const btnTema = document.getElementById("tombol-tema");
+        const btnMenu = document.getElementById("btn-menu");
+        const btnGantiNama = document.getElementById("btn-gantinama");
+        const btnSimpan = document.getElementById("btn-simpan");
+
+
+        btnTema.addEventListener("click", function() {
+        document.body.classList.toggle("tema-gelap");
+        });
+
+        btnMenu.addEventListener("click", function() {
+        document.querySelector(".grup-kanan").classList.toggle("aktif");
+        });
+
+        btnGantiNama.addEventListener("click", function() {
             let namaBaru = prompt("Siapa nama panggilan keren barumu?");
             if (namaBaru) {
                 document.getElementById("judul-hero").innerHTML = "Halo, Saya " + namaBaru;
             }
-        }
-        function sakelarLampu() {
-            document.body.classList.toggle("tema-gelap");
-        }
-        function simpanData() {
+        });
+
+        btnSimpan.addEventListener("click", function() {
             let namaDiketik = document.getElementById("input-nama").value;
             if (namaDiketik === "") {
                 alert("Ups! Kotak nama tidak boleh kosong, ya.");
             } else {
                 alert("Halo " + namaDiketik + "! Datamu telah berhasil terekam di sistem CachyOS milik Ahmad. 🚀");
             }
-        }
-        function bukaMenu() {
-            document.querySelector(".grup-kanan").classList.toggle("aktif");
-        }
+        });
     </script>
 </body>
 </html>
