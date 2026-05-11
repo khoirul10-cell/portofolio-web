@@ -79,34 +79,9 @@
 
         <section id="proyek" class="galeri-proyek">
             <h2 class="judul-section">Proyek Terbaruku</h2>
-            <div class="bapak-galeri">
-                <div class="kartu-proyek">
-                    <img src="https://picsum.photos/id/20/300/150" alt="Proyek 1">
-                    <div class="isi-kartu">
-                        <h3>Desain Poster</h3>
-                        <p>Eksperimen tata letak warna dan tipografi untuk acara kampus.</p>
-                        <a href="#" class="tombol-kartu">Lihat Detail</a>
-                    </div>
+    
+            <div id="wadah-proyek" class="bapak-galeri">
                 </div>
-
-                <div class="kartu-proyek">
-                    <img src="https://picsum.photos/id/366/300/150" alt="Proyek 2">
-                    <div class="isi-kartu">
-                        <h3>Video Cinematik</h3>
-                        <p>Proses editing warna (color grading) menggunakan DaVinci Resolve.</p>
-                        <a href="#" class="tombol-kartu">Lihat Detail</a>
-                    </div>
-                </div>
-
-                <div class="kartu-proyek">
-                    <img src="https://picsum.photos/id/0/300/150" alt="Proyek 3">
-                    <div class="isi-kartu">
-                        <h3>Eksperimen Jaringan</h3>
-                        <p>Simulasi keamanan jaringan Wi-Fi menggunakan Kali Linux.</p>
-                        <a href="#" class="tombol-kartu">Lihat Detail</a>
-                    </div>
-                </div>
-            </div>
         </section>
         
         <hr>
@@ -119,7 +94,7 @@
                 
                 <label for="prodi">Program Studi:</label>
                 <input type="text" id="prodi" name="prodiUser" value="Pendidikan Teknik Elektro">
-                <button id="btn-siman" type="button">Simpan Data</button>
+                <button id="btn-simpan" type="button">Simpan Data</button>
             </form>
         </section>
 
@@ -165,6 +140,46 @@
             } else {
                 alert("Halo " + namaDiketik + "! Datamu telah berhasil terekam di sistem CachyOS milik Ahmad. 🚀");
             }
+        });
+        // === 3. PABRIK KARTU PROYEK (Manajemen Data) ===
+
+        // A. Siapkan Data (Array of Objects)
+        const daftarProyek = [
+            {
+                judul: "Desain Poster",
+                deskripsi: "Eksperimen tata letak warna dan tipografi untuk acara kampus.",
+                gambar: "https://picsum.photos/id/20/300/150",
+                tautan: "#"
+            },
+            {
+                judul: "Video Cinematik",
+                deskripsi: "Proses editing warna (color grading) menggunakan DaVinci Resolve.",
+                gambar: "https://picsum.photos/id/366/300/150",
+                tautan: "#"
+            },
+            {
+                judul: "Eksperimen Jaringan",
+                deskripsi: "Simulasi keamanan jaringan Wi-Fi menggunakan Kali Linux.",
+                gambar: "https://picsum.photos/id/0/300/150",
+                tautan: "#"
+            }
+        ];
+        // B. Tangkap Wadah HTML-nya
+        const wadahProyek = document.getElementById("wadah-proyek");
+
+        // C. Nyalakan Mesin Looping (Perulangan)
+        daftarProyek.forEach(function(proyek) {
+        // Tambahkan HTML ke dalam wadah untuk setiap proyek
+        wadahProyek.innerHTML += `
+            <div class="kartu-proyek">
+                <img src="${proyek.gambar}" alt="${proyek.judul}">
+                <div class="isi-kartu">
+                    <h3>${proyek.judul}</h3>
+                    <p>${proyek.deskripsi}</p>
+                    <a href="${proyek.tautan}" class="tombol-kartu">Lihat Detail</a>
+                </div>
+            </div>
+        `;
         });
     </script>
 </body>
