@@ -92,6 +92,8 @@
                 <label for="input-nama">Nama Mahasiswa:</label>
                 <input type="text" id="input-nama" placeholder="Ketik namamu di sini...">
                 
+                <small id="pesan-error" style="color: red; font-weight: bold;"></small>
+
                 <label for="prodi">Program Studi:</label>
                 <input type="text" id="prodi" name="prodiUser" value="Pendidikan Teknik Elektro">
                 <button id="btn-simpan" type="button">Simpan Data</button>
@@ -134,16 +136,29 @@
         });
 
         btnSimpan.addEventListener("click", function() {
-            let namaDiketik = document.getElementById("input-nama").value;
-            if (namaDiketik === "") {
-                alert("Ups! Kotak nama tidak boleh kosong, ya.");
-            } else {
-                alert("Halo " + namaDiketik + "! Datamu telah berhasil terekam di sistem CachyOS milik Ahmad. 🚀");
-            }
-        });
-        // === 3. PABRIK KARTU PROYEK (Manajemen Data) ===
+            let inputNama = document.getElementById("input-nama");
+            let namaDiketik = inputNama.value;
+            let pesanError = document.getElementById("pesan-error");
 
-        // A. Siapkan Data (Array of Objects)
+            if (namaDiketik === "") {
+        pesanError.innerHTML = "Ups! Kotak nama tidak boleh kosong, ya.";
+        inputNama.style.borderColor = "red"; // Ubah garis kotak jadi merah
+        
+            } else if (namaDiketik.length < 3) {
+                pesanError.innerHTML = "Nama terlalu pendek, minimal 3 huruf.";
+                inputNama.style.borderColor = "orange"; // Ubah garis kotak jadi oranye
+        
+            } else {
+                pesanError.innerHTML = ""; // Bersihkan pesan error
+                inputNama.style.borderColor = "green"; // Ubah garis kotak jadi hijau
+        
+                alert("Halo " + namaDiketik + "! Datamu berhasil terekam di sistem CachyOS.");
+        
+                inputNama.value = "";
+                inputNama.style.borderColor = "#bdc3c7"; // Kembalikan ke warna abu-abu awal
+            }   
+        });
+
         const daftarProyek = [
             {
                 judul: "Desain Poster",
@@ -164,12 +179,9 @@
                 tautan: "#"
             }
         ];
-        // B. Tangkap Wadah HTML-nya
         const wadahProyek = document.getElementById("wadah-proyek");
 
-        // C. Nyalakan Mesin Looping (Perulangan)
         daftarProyek.forEach(function(proyek) {
-        // Tambahkan HTML ke dalam wadah untuk setiap proyek
         wadahProyek.innerHTML += `
             <div class="kartu-proyek">
                 <img src="${proyek.gambar}" alt="${proyek.judul}">
