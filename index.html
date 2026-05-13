@@ -119,19 +119,57 @@
         const btnGantiNama = document.getElementById("btn-gantinama");
         const btnSimpan = document.getElementById("btn-simpan");
 
+        // === FITUR TEMA GELAP DENGAN DAYA INGAT (LOCAL STORAGE) ===
 
+        // 1. Saat halaman pertama kali dibuka, cek dulu "brankas" memori browser
+        let temaSimpanan = localStorage.getItem("temaPilihan");
+
+        // Jika di dalam brankas tertulis "gelap", langsung pakaikan jubah hitamnya!
+        if (temaSimpanan === "gelap") {
+    document.body.classList.add("tema-gelap");
+}
+
+        // 2. Logika saat tombol Tema diklik
         btnTema.addEventListener("click", function() {
-        document.body.classList.toggle("tema-gelap");
+        // Ganti tema seperti biasa
+            document.body.classList.toggle("tema-gelap");
+    
+            // Setelah diganti, catat status terbarunya ke dalam brankas!
+            if (document.body.classList.contains("tema-gelap")) {
+                // Jika mode gelap sedang aktif, simpan kata "gelap"
+                localStorage.setItem("temaPilihan", "gelap");
+            } else {
+                // Jika kembali terang, simpan kata "terang"
+                localStorage.setItem("temaPilihan", "terang");
+            }
         });
+        
 
         btnMenu.addEventListener("click", function() {
         document.querySelector(".grup-kanan").classList.toggle("aktif");
         });
 
+        // === FITUR GANTI NAMA DENGAN DAYA INGAT (LOCAL STORAGE) ===
+
+        // 1. Saat halaman pertama kali dibuka, cek apakah ada nama di brankas?
+        let namaSimpanan = localStorage.getItem("namaPanggilan");
+
+        // Jika ada nama yang tersimpan, langsung tampilkan di layar!
+        if (namaSimpanan) {
+            document.getElementById("judul-hero").innerHTML = "Halo, Saya " + namaSimpanan;
+        }
+
+        // 2. Logika saat tombol diklik
         btnGantiNama.addEventListener("click", function() {
             let namaBaru = prompt("Siapa nama panggilan keren barumu?");
+    
+            // Jika user mengisi nama (tidak kosong/batal)
             if (namaBaru) {
+                // Ubah teks di layar
                 document.getElementById("judul-hero").innerHTML = "Halo, Saya " + namaBaru;
+        
+                // Simpan nama baru tersebut ke dalam brankas!
+                localStorage.setItem("namaPanggilan", namaBaru);
             }
         });
 
