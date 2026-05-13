@@ -26,6 +26,12 @@ main {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 30px 0;
+}
 
 /* Tipografi Dasar */
 h1 { color: #2c3e50; margin-bottom: 5px; }
@@ -176,6 +182,7 @@ button:hover {
     border: 2px solid #17a2b8;
     border-radius: 8px;
     padding: 15px;
+    margin: 10px 5px;
 }
 
 .github img {
@@ -305,21 +312,148 @@ button:hover {
 .sosmed-links a:hover { color: white; }
 
 /* =========================================
-   6. DARK MODE (Tema Gelap)
+   6. DARK MODE (Tema Gelap) - VERSI PERBAIKAN
    ========================================= */
+
+/* A. Pengaturan Global Mode Gelap */
 .tema-gelap {
     background-color: #121212;
     color: #ecf0f1;
 }
 
+/* B. Menggelapkan Area Tengah (Main) */
+.tema-gelap main {
+    background-color: #1a252f;
+    color: #ecf0f1; /* Warna teks default di main */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* C. Menggelapkan Navbar & Header */
+.tema-gelap header, 
+.tema-gelap .navbar {
+    background-color: #1a252f;
+}
+
+/* D. Perbaikan Konten Spesifik di Mode Gelap (Contrast Fix) */
+
+/* 1. Perbaikan Tombol Hero: Ubah agar blend, teks terang, dengan border putih */
+.tema-gelap .tombol-utama {
+    background-color: #1a252f;
+    color: white;
+    border: 2px solid white;
+}
+.tema-gelap .tombol-utama:hover {
+    background-color: #f1c40f;
+    color: #2c3e50;
+    border-color: #f1c40f;
+}
+
+/* 2. Perbaikan Judul Proyek Terbaruku: Ubah jadi teks terang */
+.tema-gelap .judul-section {
+    color: #f1c40f; /* Heading kuning */
+}
+
+/* 3. Perbaikan Bagian Fokus Minggu Ini: Pastikan H3 dan List jadi teks terang */
+.tema-gelap .fokus-minggu h3 {
+    color: #f1c40f; /* Heading kuning */
+}
+.tema-gelap .fokus-minggu ul li {
+    color: #ecf0f1; /* Teks list terang */
+}
+
+/* 4. Perbaikan Kotak Matkul: Gelapkan latar, buat H3 & List teks terang */
+.tema-gelap .Kotak-matkul {
+    background-color: #2c3e50;
+    border: 2px solid #34495e;
+    color: #ecf0f1; /* Pastikan semua teks di dalamnya terang */
+}
+.tema-gelap .Kotak-matkul h3 {
+    color: #f1c40f; /* Heading kuning */
+}
+.tema-gelap .Kotak-matkul ol li {
+    color: #ecf0f1; /* Teks list terang */
+}
+
+/* 5. Perbaikan Label Form: Ubah jadi teks terang */
+.tema-gelap .form-modern label {
+    color: #ecf0f1;
+}
+
+/* 6. Perbaikan Kartu Proyek: Gelapkan latar kartu, ubah teks di dalamnya */
 .tema-gelap .kartu-proyek {
     background-color: #1e272e;
     box-shadow: 0 5px 15px rgba(255,255,255,0.05);
 }
+.tema-gelap .isi-kartu p { color: #bdc3c7; } /* teks deskripsi abu terang */
+/* 7. Perbaikan Tautan (Link) Umum & Bagian GitHub */
+.tema-gelap a {
+    color: #5dade2; /* Biru terang agar lebih kontras di latar gelap */
+}
+.tema-gelap a:hover {
+    color: #f1c40f; /* Berubah kuning saat di-hover */
+}
+.tema-gelap .github h3 {
+    color: #f1c40f; /* Judul GitHub menjadi kuning */
+}
 
-.tema-gelap .judul-section { color: #ecf0f1; }
-.tema-gelap .isi-kartu p { color: #bdc3c7; }
+/* 8. Perbaikan Estetika Form Input (Menjadi Dark Mode) */
+.tema-gelap .form-modern input {
+    background-color: #2c3e50; /* Gelapkan latar kotak isian */
+    color: #ecf0f1; /* Teks yang diketik menjadi putih */
+    border: 1px solid #4a6278; /* Garis tepi disesuaikan */
+}
+.tema-gelap .form-modern input:focus {
+    border-color: #f1c40f; /* Garis tepi kotak jadi kuning saat diklik */
+}
 
+/* 9. Perbaikan Judul (H3) di dalam Kartu Proyek */
+.tema-gelap .isi-kartu h3 {
+    color: #5dade2; /* Biru terang agar lebih elegan dan terbaca */
+}
+/* 10. Perbaikan Logo AKM */
+.tema-gelap .logo {
+    color: #f1c40f; /* Menyala kuning keemasan */
+}
+
+/* 11. Perbaikan Latar Hero Section ("Halo, Saya...") */
+.tema-gelap .hero-section {
+    /* Mengubah gradien biru terang menjadi gradien biru sangat gelap ke hitam */
+    background: linear-gradient(135deg, #1a252f, #121212); 
+    border: 1px solid #2c3e50; /* Sedikit garis tegas */
+}
+
+/* 12. Perbaikan Tombol "Lihat Detail" di Kartu Proyek */
+.tema-gelap .tombol-kartu {
+    background-color: transparent; /* Latar transparan */
+    color: #5dade2; /* Teks biru terang */
+    border: 1px solid #5dade2; /* Garis tepi biru terang */
+}
+.tema-gelap .tombol-kartu:hover {
+    background-color: #5dade2; /* Saat di-hover, latar jadi biru */
+    color: #121212; /* Teks jadi gelap */
+}
+
+/* 13. Perbaikan Judul "2. Form Input" (Dan semua H3 yang tercecer) */
+.tema-gelap h3 {
+    color: #f1c40f; /* Pukul rata semua H3 di mode gelap menjadi kuning */
+}
+/* 14. Perbaikan Garis Pemisah (HR) di Mode Gelap */
+.tema-gelap hr {
+    border: none; /* Hilangkan gaya 3D bawaan browser */
+    height: 1px; /* Buat garisnya tipis elegan */
+    background-color: #34495e; /* Ubah warnanya menjadi biru abu-abu gelap */
+    margin: 30px 0; /* Beri ruang napas atas-bawah yang lega */
+}
+/* 15. Perbaikan Ruang Napas List (Indentasi) */
+main ul, main ol {
+    padding-left: 25px; /* Memberikan ruang di sebelah kiri agar list menjorok ke dalam */
+    margin-top: 10px; /* Memberikan sedikit jarak ekstra dari judul h3 di atasnya */
+}
+
+/* Sedikit tambahan agar tiap baris list tidak terlalu berdempetan */
+main ul li, main ol li {
+    margin-bottom: 8px;
+}
 /* =========================================
    7. RESPONSIVITAS HP (Media Queries)
    ========================================= */
@@ -369,10 +503,15 @@ button:hover {
         transform: translateY(0);
     }
 }
-
-/* 2. Menerapkan animasi ke elemen (Hero, Skill, Proyek, dll) */
-.hero-section, .skill-section, .galeri-proyek, .form-modern {
-    /* Panggil nama animasinya, durasi 0.8 detik, perlambatan halus, dan pertahankan posisi akhir */
+/* 2. Menerapkan animasi ke SEMUA elemen penting */
+header, 
+.hero-section, 
+.fokus-minggu, 
+.github, 
+.Kotak-matkul, 
+.bapak-flexbox, 
+.galeri-proyek, 
+.form-modern {
     animation: munculHalus 0.8s ease-out forwards;
     opacity: 0; /* Sembunyikan dulu di awal */
 }
