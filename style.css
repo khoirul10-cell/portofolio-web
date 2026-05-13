@@ -154,11 +154,20 @@ button:hover {
     font-weight: bold;
 }
 
+
 .tombol-utama:hover {
     background-color: #f1c40f;
     color: #2c3e50;
 }
+.tombol-utama, .tombol-kartu {
+    /* ... (kode lama biarkan) ... */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
+.tombol-utama:hover, .tombol-kartu:hover {
+    background-color: #2980b9; /* Warna sedikit lebih gelap saat di-hover */
+    transform: scale(1.05); /* Membesar 5% */
+}
 /* =========================================
    4. KONTEN & SEGMEN UTAMA
    ========================================= */
@@ -214,10 +223,13 @@ button:hover {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     width: 100%;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.kartu-proyek:hover { transform: translateY(-8px); }
+.kartu-proyek:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
 
 .kartu-proyek img { width: 100%; height: auto; display: block; }
 
@@ -343,4 +355,24 @@ button:hover {
     .bapak-galeri {
         grid-template-columns: 1fr;
     }
+}
+/* === MESIN ANIMASI === */
+
+/* 1. Mendefinisikan gerakan (dari transparan/bawah menuju jelas/atas) */
+@keyframes munculHalus {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. Menerapkan animasi ke elemen (Hero, Skill, Proyek, dll) */
+.hero-section, .skill-section, .galeri-proyek, .form-modern {
+    /* Panggil nama animasinya, durasi 0.8 detik, perlambatan halus, dan pertahankan posisi akhir */
+    animation: munculHalus 0.8s ease-out forwards;
+    opacity: 0; /* Sembunyikan dulu di awal */
 }
