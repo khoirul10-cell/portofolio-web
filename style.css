@@ -479,7 +479,31 @@ main ul li, main ol li {
         box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); /* Cahaya hilang */
     }
 }
+/* =========================================
+   17. Eksperimen: Latar Gradien Berjalan
+   ========================================= */
 
+/* A. Mesin Penggeser Latar */
+@keyframes gradienBergerak {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* B. Modifikasi Hero Section Mode Terang (Kontras Tinggi) */
+.hero-section {
+    /* Perpaduan Tosca, Biru Terang, Ungu, dan Biru Gelap */
+    background: linear-gradient(-45deg, #1abc9c, #3498db, #9b59b6, #34495e);
+    background-size: 400% 400%; 
+    animation: gradienBergerak 8s ease infinite; /* Dipercepat dari 12s menjadi 8s */
+}
+
+/* C. Modifikasi Hero Section Mode Gelap (Vibe Cyberpunk/Neon) */
+.tema-gelap .hero-section {
+    /* Perpaduan Hitam Pekat, Biru Neon Gelap, dan Ungu Gelap */
+    background: linear-gradient(-45deg, #000000, #1b263b, #4a154b, #121212);
+    background-size: 400% 400%;
+}
 .grup-tombol-hero a.tombol-utama {
     animation: denyutBercahaya 2s infinite; /* Berjalan berulang-ulang tanpa henti tiap 2 detik */
 }
