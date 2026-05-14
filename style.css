@@ -1,6 +1,3 @@
-/* =========================================
-   1. PENGATURAN GLOBAL & DASAR
-   ========================================= */
 html {
     scroll-behavior: smooth; 
 }
@@ -33,11 +30,9 @@ hr {
     margin: 30px 0;
 }
 
-/* Tipografi Dasar */
 h1 { color: #2c3e50; margin-bottom: 5px; }
 h3 { margin-top: 25px; margin-bottom: 10px; color: #34495e; }
 
-/* Tombol Dasar (Dibersihkan dari aturan Lebar 100%) */
 button {
     background-color: #3498db;
     color: white;
@@ -56,9 +51,6 @@ button:hover {
     transform: translateY(-3px);
 }
 
-/* =========================================
-   2. NAVBAR & HEADER
-   ========================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -118,9 +110,6 @@ button:hover {
     margin: 0;
 }
 
-/* =========================================
-   3. HERO SECTION
-   ========================================= */
 .hero-section {
     display: flex;
     flex-direction: column;
@@ -167,7 +156,6 @@ button:hover {
     color: #2c3e50;
 }
 .tombol-utama, .tombol-kartu {
-    /* ... (kode lama biarkan) ... */
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -175,9 +163,6 @@ button:hover {
     background-color: #2980b9; /* Warna sedikit lebih gelap saat di-hover */
     transform: scale(1.05); /* Membesar 5% */
 }
-/* =========================================
-   4. KONTEN & SEGMEN UTAMA
-   ========================================= */
 .Kotak-matkul {
     background-color: #d1ecf1;
     border: 2px solid #17a2b8;
@@ -185,7 +170,15 @@ button:hover {
     padding: 15px;
     margin: 10px 5px;
 }
-
+.fokus-minggu {
+    background: rgba(255, 255, 255, 0.4); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Untuk Safari/Apple */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 10px; /* Membuat sudutnya melengkung halus */
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
 .github img {
     width: 150px;
     max-width: 100%;
@@ -194,7 +187,6 @@ button:hover {
     margin-top: 10px;
 }
 
-/* Latihan Flexbox Dasar */
 .bapak-flexbox {
     display: flex;
     justify-content: space-between;
@@ -214,7 +206,6 @@ button:hover {
 }
 .anak-kartu h4 { margin-bottom: 10px; color: #3498db; }
 
-/* Galeri Proyek */
 .judul-section { text-align: center; color: #2c3e50; margin-bottom: 20px; }
 
 .bapak-galeri {
@@ -259,7 +250,6 @@ button:hover {
 
 .tombol-kartu:hover { background-color: #2980b9; }
 
-/* Form Modern */
 .form-modern {
     display: flex;
     flex-direction: column;
@@ -288,15 +278,11 @@ button:hover {
     box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
 }
 
-/* Memindahkan paksaan lebar 100% khusus untuk tombol form saja */
 .form-modern button {
     width: 100%;
     margin-top: 10px;
 }
 
-/* =========================================
-   5. FOOTER
-   ========================================= */
 .footer-modern {
     display: flex;
     justify-content: space-between;
@@ -312,32 +298,22 @@ button:hover {
 .sosmed-links a { color: #3498db; text-decoration: none; font-weight: bold; transition: 0.3s; }
 .sosmed-links a:hover { color: white; }
 
-/* =========================================
-   6. DARK MODE (Tema Gelap) - VERSI PERBAIKAN
-   ========================================= */
-
-/* A. Pengaturan Global Mode Gelap */
 .tema-gelap {
     background-color: #121212;
     color: #ecf0f1;
 }
 
-/* B. Menggelapkan Area Tengah (Main) */
 .tema-gelap main {
     background-color: #1a252f;
     color: #ecf0f1; /* Warna teks default di main */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* C. Menggelapkan Navbar & Header */
 .tema-gelap header, 
 .tema-gelap .navbar {
     background-color: #1a252f;
 }
 
-/* D. Perbaikan Konten Spesifik di Mode Gelap (Contrast Fix) */
-
-/* 1. Perbaikan Tombol Hero: Ubah agar blend, teks terang, dengan border putih */
 .tema-gelap .tombol-utama {
     background-color: #1a252f;
     color: white;
@@ -349,12 +325,10 @@ button:hover {
     border-color: #f1c40f;
 }
 
-/* 2. Perbaikan Judul Proyek Terbaruku: Ubah jadi teks terang */
 .tema-gelap .judul-section {
     color: #f1c40f; /* Heading kuning */
 }
 
-/* 3. Perbaikan Bagian Fokus Minggu Ini: Pastikan H3 dan List jadi teks terang */
 .tema-gelap .fokus-minggu h3 {
     color: #f1c40f; /* Heading kuning */
 }
@@ -362,7 +336,6 @@ button:hover {
     color: #ecf0f1; /* Teks list terang */
 }
 
-/* 4. Perbaikan Kotak Matkul: Gelapkan latar, buat H3 & List teks terang */
 .tema-gelap .Kotak-matkul {
     background-color: #2c3e50;
     border: 2px solid #34495e;
@@ -375,18 +348,15 @@ button:hover {
     color: #ecf0f1; /* Teks list terang */
 }
 
-/* 5. Perbaikan Label Form: Ubah jadi teks terang */
 .tema-gelap .form-modern label {
     color: #ecf0f1;
 }
 
-/* 6. Perbaikan Kartu Proyek: Gelapkan latar kartu, ubah teks di dalamnya */
 .tema-gelap .kartu-proyek {
     background-color: #1e272e;
     box-shadow: 0 5px 15px rgba(255,255,255,0.05);
 }
 .tema-gelap .isi-kartu p { color: #bdc3c7; } /* teks deskripsi abu terang */
-/* 7. Perbaikan Tautan (Link) Umum & Bagian GitHub */
 .tema-gelap a {
     color: #5dade2; /* Biru terang agar lebih kontras di latar gelap */
 }
@@ -397,7 +367,6 @@ button:hover {
     color: #f1c40f; /* Judul GitHub menjadi kuning */
 }
 
-/* 8. Perbaikan Estetika Form Input (Menjadi Dark Mode) */
 .tema-gelap .form-modern input {
     background-color: #2c3e50; /* Gelapkan latar kotak isian */
     color: #ecf0f1; /* Teks yang diketik menjadi putih */
@@ -407,23 +376,18 @@ button:hover {
     border-color: #f1c40f; /* Garis tepi kotak jadi kuning saat diklik */
 }
 
-/* 9. Perbaikan Judul (H3) di dalam Kartu Proyek */
 .tema-gelap .isi-kartu h3 {
     color: #5dade2; /* Biru terang agar lebih elegan dan terbaca */
 }
-/* 10. Perbaikan Logo AKM */
 .tema-gelap .logo {
     color: #f1c40f; /* Menyala kuning keemasan */
 }
 
-/* 11. Perbaikan Latar Hero Section ("Halo, Saya...") */
 .tema-gelap .hero-section {
-    /* Mengubah gradien biru terang menjadi gradien biru sangat gelap ke hitam */
     background: linear-gradient(135deg, #1a252f, #121212); 
     border: 1px solid #2c3e50; /* Sedikit garis tegas */
 }
 
-/* 12. Perbaikan Tombol "Lihat Detail" di Kartu Proyek */
 .tema-gelap .tombol-kartu {
     background-color: transparent; /* Latar transparan */
     color: #5dade2; /* Teks biru terang */
@@ -433,31 +397,30 @@ button:hover {
     background-color: #5dade2; /* Saat di-hover, latar jadi biru */
     color: #121212; /* Teks jadi gelap */
 }
-
-/* 13. Perbaikan Judul "2. Form Input" (Dan semua H3 yang tercecer) */
 .tema-gelap h3 {
     color: #f1c40f; /* Pukul rata semua H3 di mode gelap menjadi kuning */
 }
-/* 14. Perbaikan Garis Pemisah (HR) di Mode Gelap */
 .tema-gelap hr {
     border: none; /* Hilangkan gaya 3D bawaan browser */
     height: 1px; /* Buat garisnya tipis elegan */
     background-color: #34495e; /* Ubah warnanya menjadi biru abu-abu gelap */
     margin: 30px 0; /* Beri ruang napas atas-bawah yang lega */
 }
-/* 15. Perbaikan Ruang Napas List (Indentasi) */
+.tema-gelap .fokus-minggu {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Kacanya menjadi lebih gelap (smoke glass) */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Pinggiran kacanya lebih redup */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Bayangannya dipertebal */
+}
 main ul, main ol {
     padding-left: 25px; /* Memberikan ruang di sebelah kiri agar list menjorok ke dalam */
     margin-top: 10px; /* Memberikan sedikit jarak ekstra dari judul h3 di atasnya */
 }
 
-/* Sedikit tambahan agar tiap baris list tidak terlalu berdempetan */
 main ul li, main ol li {
     margin-bottom: 8px;
 }
-/* =========================================
-   7. RESPONSIVITAS HP (Media Queries)
-   ========================================= */
 @media (max-width: 768px) {
     
     .menu-toggle { display: block; }
@@ -491,9 +454,6 @@ main ul li, main ol li {
         grid-template-columns: 1fr;
     }
 }
-/* === MESIN ANIMASI === */
-
-/* 1. Mendefinisikan gerakan (dari transparan/bawah menuju jelas/atas) */
 @keyframes munculHalus {
     0% {
         opacity: 0;
@@ -504,7 +464,25 @@ main ul li, main ol li {
         transform: translateY(0);
     }
 }
-/* 2. Menerapkan animasi ke SEMUA elemen penting */
+
+@keyframes denyutBercahaya {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7); /* Cahaya biru pekat menempel */
+    }
+    50% {
+        transform: scale(1.05); /* Membesar sedikit di pertengahan waktu */
+        box-shadow: 0 0 20px 10px rgba(52, 152, 219, 0); /* Cahaya memudar & menyebar */
+    }
+    100% {
+        transform: scale(1); /* Kembali ke ukuran semula */
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); /* Cahaya hilang */
+    }
+}
+
+.grup-tombol-hero a.tombol-utama {
+    animation: denyutBercahaya 2s infinite; /* Berjalan berulang-ulang tanpa henti tiap 2 detik */
+}
 header, 
 .hero-section, 
 .fokus-minggu, 
