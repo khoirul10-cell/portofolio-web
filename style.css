@@ -468,6 +468,36 @@ button:hover {
         0 0 40px #00ffff,           /* Pendaran Cyan level 2 */
         0 0 80px #00ffff;           /* Pendaran Cyan paling luar */
 }
+/* =========================================
+   20. Kustomisasi Sorotan Teks (Selection)
+   ========================================= */
+/* Mengubah warna latar dan teks saat tulisan di-blok */
+::selection {
+    background-color: #f1c40f; /* Latar menjadi kuning */
+    color: #121212; /* Teks menjadi gelap */
+}
+
+/* Khusus untuk mode gelap, kita buat sorotannya sedikit berbeda */
+.tema-gelap ::selection {
+    background-color: #00ffff; /* Latar menjadi cyan/neon */
+    color: #000000;
+}
+
+/* =========================================
+   21. Efek Glitch pada Judul (Hover)
+   ========================================= */
+.hero-section h1 {
+    transition: all 0.1s ease; /* Transisi dibuat sangat cepat agar terasa seperti patahan */
+}
+
+/* Saat kursor menyentuh judul H1 di Hero Section */
+.hero-section h1:hover {
+    transform: skew(-4deg); /* Teks sedikit miring mendadak */
+    /* Menciptakan bayangan merah dan cyan yang terpisah (Chromatic Aberration) */
+    text-shadow: 
+        3px 0px 0px rgba(255, 0, 0, 0.8), 
+        -3px 0px 0px rgba(0, 255, 255, 0.8);
+}
 main ul, main ol {
     padding-left: 25px; /* Memberikan ruang di sebelah kiri agar list menjorok ke dalam */
     margin-top: 10px; /* Memberikan sedikit jarak ekstra dari judul h3 di atasnya */
