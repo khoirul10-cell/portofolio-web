@@ -448,6 +448,26 @@ button:hover {
 ::-webkit-scrollbar-thumb:hover {
     background-color: #f1c40f; /* Berubah menjadi kuning saat disentuh */
 }
+/* =========================================
+   19. Eksperimen: Efek Neon Cyberpunk pada Logo
+   ========================================= */
+
+/* Pastikan transisi perpindahan warnanya halus */
+.logo {
+    transition: all 0.3s ease;
+    cursor: pointer; /* Mengubah kursor menjadi tangan saat menyentuh logo */
+}
+
+/* Menyalakan neon HANYA saat di mode gelap dan di-hover */
+.tema-gelap .logo:hover {
+    color: #ffffff; /* Inti lampu menjadi putih terang */
+    text-shadow: 
+        0 0 5px #fff,               /* Cahaya dekat */
+        0 0 10px #fff,              /* Cahaya menengah */
+        0 0 20px #00ffff,           /* Pendaran Cyan (Biru Muda) level 1 */
+        0 0 40px #00ffff,           /* Pendaran Cyan level 2 */
+        0 0 80px #00ffff;           /* Pendaran Cyan paling luar */
+}
 main ul, main ol {
     padding-left: 25px; /* Memberikan ruang di sebelah kiri agar list menjorok ke dalam */
     margin-top: 10px; /* Memberikan sedikit jarak ekstra dari judul h3 di atasnya */
