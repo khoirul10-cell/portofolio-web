@@ -229,8 +229,18 @@ button:hover {
     transform: translateY(-8px); 
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
+/* Mengatur gambar awal dan menambahkan transisi halus selama 0.5 detik */
+.kartu-proyek img { 
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    transition: transform 0.5s ease; /* Transisi zoom yang smooth */
+}
 
-.kartu-proyek img { width: 100%; height: auto; display: block; }
+/* Saat KARTU di-hover, GAMBAR di dalamnya akan membesar 10% */
+.kartu-proyek:hover img {
+    transform: scale(1.1);
+}
 
 .isi-kartu { padding: 20px; }
 .isi-kartu h3 { margin-top: 0; color: #3498db; }
@@ -412,6 +422,31 @@ button:hover {
     -webkit-backdrop-filter: blur(10px); /* Kacanya menjadi lebih gelap (smoke glass) */
     border: 1px solid rgba(255, 255, 255, 0.08); /* Pinggiran kacanya lebih redup */
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Bayangannya dipertebal */
+}
+/* =========================================
+   18. Custom Scrollbar (WebKit)
+   ========================================= */
+
+/* Mengatur ukuran lebar keseluruhan scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Mengatur jalur lintasan (track) scrollbar */
+::-webkit-scrollbar-track {
+    background-color: #1a252f; /* Warna biru gelap pekat */
+}
+
+/* Mengatur batang penggeser (thumb) yang bisa ditarik */
+::-webkit-scrollbar-thumb {
+    background-color: #34495e; /* Warna abu-abu kebiruan */
+    border-radius: 10px; /* Ujungnya dibuat membulat / rounded */
+    border: 3px solid #1a252f; /* Memberikan ilusi jarak (padding) dengan lintasan */
+}
+
+/* Efek saat batang penggeser di-hover atau diklik */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #f1c40f; /* Berubah menjadi kuning saat disentuh */
 }
 main ul, main ol {
     padding-left: 25px; /* Memberikan ruang di sebelah kiri agar list menjorok ke dalam */
