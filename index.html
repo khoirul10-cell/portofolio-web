@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AKM Belajar - Masih Pemula</title>
+    <meta property="og:title" content="Ahmad Khoirul Muna | Portofolio" />
+    <meta property="og:description" content="Portofolio digital menampilkan proyek, karya desain, dan eksperimen web development." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nama-domain-kamu.com" />
+    <meta property="og:image" content="https://nama-domain-kamu.com/assets/thumbnail-og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ahmad Khoirul Muna | Portofolio" />
+    <meta name="twitter:description" content="Portofolio digital menampilkan proyek, karya desain, dan eksperimen web development." />
+    <meta name="twitter:image" content="https://nama-domain-kamu.com/assets/thumbnail-og.jpg" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -122,10 +134,10 @@
         let temaSimpanan = localStorage.getItem("temaPilihan");
 
         if (temaSimpanan === "gelap") {
-    document.body.classList.add("tema-gelap");
+            document.body.classList.add("tema-gelap");
 }
 
-        btnTema.addEventListener("click", function() {
+            btnTema.addEventListener("click", function() {
             document.body.classList.toggle("tema-gelap");
     
             if (document.body.classList.contains("tema-gelap")) {
