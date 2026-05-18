@@ -669,3 +669,17 @@ header,
         0 0 20px rgba(155, 89, 182, 0.2), /* Pendaran ungu muda (deep purple) tengah */
         0 0 30px rgba(155, 89, 182, 0.1); /* Pendaran ungu muda luar lembut */
 }
+/* =========================================
+   25. Responsivitas HP (Media Queries)
+   ========================================= */
+
+/* Kode di dalam kurung kurawal ini HANYA akan aktif di layar HP (lebar maksimal 768px) */
+@media screen and (max-width: 768px) {
+    .efek-ngetik {
+        white-space: normal; /* Izinkan teks turun ke baris baru */
+        width: 100%; /* Penuhi lebar kotak saja, jangan menjebol */
+        animation: none; /* Matikan animasi ketik khusus di HP agar tata letak rapi */
+        border-right: none; /* Hilangkan garis kursor */
+        line-height: 1.6; /* Beri jarak antar baris teks agar nyaman dibaca */
+    }
+}
