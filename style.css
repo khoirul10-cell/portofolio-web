@@ -603,3 +603,69 @@ header,
     animation: munculHalus 0.8s ease-out forwards;
     opacity: 0; /* Sembunyikan dulu di awal */
 }
+/* =========================================
+   22. Eksperimen: Terminal Typing Effect
+   ========================================= */
+
+.efek-ngetik {
+    font-family: 'Courier New', Courier, monospace; 
+    color: #00ffff; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    border-right: 3px solid #00ffff; 
+    
+    width: 56ch; /* Pastikan angka ini tetap sesuai jumlah karaktermu */
+    
+    /* Kita batasi kedipan kursor dan tambahkan animasi sembunyi */
+    animation: 
+        ngetik 3s steps(56, end) forwards,
+        kedipKursor 0.7s step-end 4 forwards, /* Hanya berkedip 4 kali (sekitar 2.8 detik) */
+        sembunyiKursor 0.1s 3s forwards; /* Setelah detik ke-3, jalankan perintah sembunyi */
+}
+
+/* Biarkan @keyframes ngetik dan kedipKursor yang lama tetap ada */
+@keyframes ngetik {
+    from { width: 0; }
+}
+
+@keyframes kedipKursor {
+    from, to { border-color: transparent; }
+    50% { border-color: #00ffff; }
+}
+
+/* Tambahkan amunisi baru ini di paling bawah */
+@keyframes sembunyiKursor {
+    to { border-right: none; }
+}
+/* =========================================
+   24. Styling & Animasi Foto Profil (ADAPTIF TEMA)
+   ========================================= */
+
+/* 1. GAYA DEFAULT (MODE TERANG) */
+.foto-profil {
+    width: 90px; /* Ukuran yang sudah kamu sesuaikan */
+    height: 90px;
+    object-fit: cover; 
+    object-position: center top; 
+    border-radius: 50%; 
+    
+    /* Tema Terang: Border putih tebal yang bersih & bayangan hitam lembut */
+    border: 4px solid #ffffff; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+    
+    animation: melayang 4s ease-in-out infinite;
+    /* Transisi halus agar saat ganti tema tidak mengagetkan mata */
+    transition: all 0.4s ease; 
+}
+
+.tema-gelap .foto-profil {
+    /* Ubah border dari cyan murni ke cyan yang lebih halus/redup */
+    border-color: #933297; 
+    
+    /* Revisi Shadow: Campurkan cyan diredupkan dengan nuansa ungu latar belakang */
+    /* Kita gunakan warna ungu muda (#9b59b6) dengan opasitas rendah untuk pendaran tengah-luar */
+    box-shadow: 
+        0 0 10px rgba(217, 4, 255, 0.3), /* Pendaran cyan diredupkan dalam */
+        0 0 20px rgba(155, 89, 182, 0.2), /* Pendaran ungu muda (deep purple) tengah */
+        0 0 30px rgba(155, 89, 182, 0.1); /* Pendaran ungu muda luar lembut */
+}
