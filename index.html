@@ -198,18 +198,21 @@
         const daftarProyek = [
             {
                 judul: "Desain Poster",
+                kategori: "🎨 Desain Grafis", // Tambahan data kategori
                 deskripsi: "Eksperimen tata letak warna dan tipografi untuk acara kampus.",
                 gambar: "https://picsum.photos/id/20/300/150",
                 tautan: "#"
             },
             {
                 judul: "Video Cinematik",
+                kategori: "🎥 Video Editing", // Tambahan data kategori
                 deskripsi: "Proses editing warna (color grading) menggunakan DaVinci Resolve.",
                 gambar: "https://picsum.photos/id/366/300/150",
                 tautan: "#"
             },
             {
                 judul: "Eksperimen Jaringan",
+                kategori: "💻 IT & Jaringan", // Tambahan data kategori
                 deskripsi: "Simulasi keamanan jaringan Wi-Fi menggunakan Kali Linux.",
                 gambar: "https://picsum.photos/id/0/300/150",
                 tautan: "#"
@@ -217,17 +220,22 @@
         ];
         const wadahProyek = document.getElementById("wadah-proyek");
 
+        // Loop untuk mencetak kartu
         daftarProyek.forEach(function(proyek) {
-        wadahProyek.innerHTML += `
-            <div class="kartu-proyek">
-                <img src="${proyek.gambar}" alt="${proyek.judul}">
-                <div class="isi-kartu">
-                    <h3>${proyek.judul}</h3>
-                    <p>${proyek.deskripsi}</p>
-                    <a href="${proyek.tautan}" class="tombol-kartu">Lihat Detail</a>
+            wadahProyek.innerHTML += `
+                <div class="kartu-proyek">
+                    <div class="bungkus-gambar">
+                        <span class="badge-kategori">${proyek.kategori}</span>
+                        <img src="${proyek.gambar}" alt="${proyek.judul}">
+                    </div>
+                    
+                    <div class="isi-kartu">
+                        <h3>${proyek.judul}</h3>
+                        <p>${proyek.deskripsi}</p>
+                        <a href="${proyek.tautan}" class="tombol-kartu">Lihat Detail</a>
+                    </div>
                 </div>
-            </div>
-        `;
+            `;
         });
     </script>
 </body>
