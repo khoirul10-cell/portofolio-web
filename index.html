@@ -21,7 +21,20 @@
 <body>
     
     <header class="navbar">
-        <h2 class="logo">AKM</h2>
+        <a href="#" class="logo-wrapper">
+            <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,5 92,28 92,72 50,95 8,72 8,28" class="svg-bg-hex"/>
+            
+            <path d="
+                M 15,70 L 25,30 L 35,70 M 20,50 L 30,50 
+                M 43,30 L 43,70 M 43,50 L 53,30 M 43,50 L 53,70 
+                M 68,70 L 68,30 L 78,50 L 88,30 L 88,70" 
+                class="svg-path-akm"/>
+                
+            <polygon points="56,47 56,57 63,52" class="svg-play-button"/>
+        </svg>
+            <span class="logo-teks">AKM</span>
+        </a>
         <button id="btn-menu" class="menu-toggle">☰</button>
         <nav class="grup-kanan">
             <ul class="nav-links">
@@ -219,7 +232,7 @@
             }
         ];
         const wadahProyek = document.getElementById("wadah-proyek");
-
+        
         // Loop untuk mencetak kartu
         daftarProyek.forEach(function(proyek) {
             wadahProyek.innerHTML += `
@@ -236,6 +249,38 @@
                     </div>
                 </div>
             `;
+        });
+        const semuaKartu = document.querySelectorAll('.kartu-proyek');
+        
+        // RADAR DETEKTOR: Cek di Console apakah kartunya terbaca
+        console.log("Radar aktif! Jumlah kartu terdeteksi: ", semuaKartu.length); 
+
+        semuaKartu.forEach(kartu => {
+            // Berikan izin kartu untuk bermain di ruang 3D
+            kartu.style.transformStyle = "preserve-3d"; 
+
+            // 2. Saat kursor bergerak di atas kartu
+            kartu.addEventListener('mousemove', (e) => {
+                const rect = kartu.getBoundingClientRect();
+                const x = e.clientX - rect.left; 
+                const y = e.clientY - rect.top;
+                
+                const xTengah = rect.width / 2;
+                const yTengah = rect.height / 2;
+                
+                const rotasiX = ((y - yTengah) / yTengah) * -12; 
+                const rotasiY = ((x - xTengah) / xTengah) * 12;
+                
+                // Terapkan sihir 3D
+                kartu.style.transform = `perspective(1000px) rotateX(${rotasiX}deg) rotateY(${rotasiY}deg) scale3d(1.05, 1.05, 1.05)`;
+                kartu.style.transition = 'none'; 
+            });
+
+            // 3. Saat kursor meninggalkan kartu
+            kartu.addEventListener('mouseleave', () => {
+                kartu.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                kartu.style.transition = 'transform 0.5s ease'; 
+            });
         });
     </script>
 </body>

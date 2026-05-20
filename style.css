@@ -225,16 +225,38 @@ button:hover { background-color: var(--warna-aksen-hover); transform: translateY
     box-shadow: 0 5px 15px rgba(0,0,0,0.1); width: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .tema-gelap .kartu-proyek { box-shadow: 0 5px 15px rgba(255,255,255,0.05); }
-.kartu-proyek:hover { transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
 .kartu-proyek img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
 .kartu-proyek:hover img { transform: scale(1.1); }
 /* =========================================
    LABEL KATEGORI MELAYANG DI GALERI
    ========================================= */
-
+/* =========================================
+   PERBAIKAN BUG SUDUT GAMBAR 3D
+   ========================================= */
 .bungkus-gambar {
-    position: relative; /* Kunci utama: agar label tetap terkurung di dalam gambar */
+    position: relative;
     overflow: hidden;
+    
+    /* 1. Kunci sudut atas agar melengkung (misal: 10px, sesuaikan dengan border-radius kartumu) */
+    border-radius: 10px 10px 0 0; 
+    
+    /* 2. SIHIR UTAMA: Paksa browser tetap memotong gambar saat masuk mode 3D/GPU */
+    transform: translateZ(0); 
+    /* ... kode transform kamu sebelumnya ... */
+    
+    /* Hack khusus WebKit (Chrome/Safari/Edge) */
+    -webkit-mask-image: -webkit-radial-gradient(white, black); 
+    
+    /* Properti standar universal agar VS Code tidak protes */
+    mask-image: radial-gradient(white, black); 
+}
+
+/* Pastikan gambar di dalamnya juga dipaksa melengkung */
+.bungkus-gambar img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px 10px 0 0; /* Ikuti lengkungan bungkusnya */
 }
 
 .badge-kategori {
@@ -380,14 +402,79 @@ header, .hero-section, .fokus-minggu, .github, .Kotak-matkul, .bapak-flexbox, .g
 ::-webkit-scrollbar-thumb { background-color: #34495e; border-radius: 10px; border: 3px solid #1a252f; }
 ::-webkit-scrollbar-thumb:hover { background-color: #f1c40f; }
 
-/* Ganti warna var(--teks-heading) menjadi putih murni */
-.logo { transition: all 0.3s ease; cursor: pointer; color: #ffffff; font-weight: bold; }
-.tema-gelap .logo { color: #f1c40f; }
-.tema-gelap .logo:hover {
-    color: #ffffff;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+/* =========================================
+   7. REVISI: STYLING LOGO INLINE SVG ADAPTIF
+   ========================================= */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
+/* Mengatur Ukuran Bingkai Vektor Logo */
+.logo-svg {
+    width: 38px;
+    height: 38px;
+    transition: transform 0.3s ease;
+}
+
+/* Garis Hexagon Tipis di Latar Belakang */
+.svg-bg-hex {
+    fill: none;
+    stroke: var(--teks-utama);
+    stroke-width: 2;
+    opacity: 0.15;
+    transition: stroke 0.4s ease, opacity 0.4s ease;
+}
+
+/* Jalur Utama Huruf AKM - Warnanya otomatis ikut warna heading tema! */
+.svg-path-akm {
+    fill: none;
+    stroke: var(--teks-utama);
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.4s ease;
+}
+
+/* Simbol Play Button Kreatif */
+.svg-play-button {
+    fill: var(--warna-aksen);
+    transition: fill 0.4s ease, transform 0.3s ease;
+    transform-origin: 62px 52px;
+}
+
+/* Teks Inisial di Samping Logo */
+.logo-teks {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--teks-utama);
+    transition: color 0.4s ease;
+}
+
+/* === EFEK HOVER NYALA NEON (KHUSUS MODE GELAP) === */
+.logo-wrapper:hover .logo-svg {
+    transform: scale(1.1); /* Logo sedikit membesar saat disentuh */
+}
+
+.tema-gelap .logo-wrapper:hover .svg-path-akm {
+    stroke: #ffffff; /* Inti garis jadi putih terang */
+    /* Efek pendaran neon cyan board sirkuit */
+    filter: drop-shadow(0 0 4px #00ffff) drop-shadow(0 0 12px #00ffff);
+}
+
+.tema-gelap .logo-wrapper:hover .svg-play-button {
+    fill: #ffffff;
+    filter: drop-shadow(0 0 5px #00ffff);
+}
+
+.tema-gelap .logo-wrapper:hover .logo-teks {
+    color: #f1c40f; /* Teks AKM menyala kuning keemasan */
+    text-shadow: 0 0 8px rgba(241, 196, 15, 0.6);
+}
 ::selection { background-color: #f1c40f; color: #121212; }
 .tema-gelap ::selection { background-color: #00ffff; color: #000000; }
 
@@ -402,6 +489,32 @@ header, .hero-section, .fokus-minggu, .github, .Kotak-matkul, .bapak-flexbox, .g
     color: #00ffff; white-space: nowrap; overflow: hidden; 
     border-right: 3px solid #00ffff; width: 56ch; 
     animation: ngetik 3s steps(56, end) forwards, kedipKursor 0.7s step-end 4 forwards, sembunyiKursor 0.1s 3s forwards;
+}
+/* =========================================
+   XX. EFEK ANIMASI BERUNTUN (STAGGERED SKILLS)
+   ========================================= */
+
+/* Kunci Utama: Pastikan kotak anak-kartu memiliki animasi dasar munculHalus */
+.anak-kartu {
+    animation: munculHalus 0.8s ease-out forwards;
+    opacity: 0; /* Sembunyikan dulu di awal */
+}
+
+/* Kita atur jeda waktu (delay) untuk masing-masing kotak berdasarkan urutannya */
+
+/* Kotak Skill 1 (Linux) - Tanpa jeda, muncul duluan */
+.anak-kartu:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+/* Kotak Skill 2 (HTML/CSS) - Jeda 0.2 detik */
+.anak-kartu:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+/* Kotak Skill 3 (Logika) - Jeda 0.4 detik */
+.anak-kartu:nth-child(3) {
+    animation-delay: 0.5s;
 }
 
 /* =========================================
